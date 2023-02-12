@@ -8,15 +8,17 @@
         Title="Lilyvale Speech Hub" Height="130" Width="520" MinHeight="130" MinWidth="520" HorizontalAlignment="Center" VerticalAlignment="Center" SizeToContent="WidthAndHeight">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="6*"/>
-            <RowDefinition Height="13*"/>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10*"/>
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
-        <TextBox Name="FolderNameTextBox" VerticalAlignment="Center" HorizontalAlignment="Center" Width="250" Height="18"/>
-        <Button Content="Browse" VerticalAlignment="Center" HorizontalAlignment="Left" Name="folderBrowseButton"  Click="button1_Click" Height="18" Grid.Column="1" Width="42" />
+        <TextBox Name="FolderNameTextBox" VerticalAlignment="Center" HorizontalAlignment="Center" Width="250" Height="20"/>
+        <Button Content="Browse" VerticalAlignment="Center" HorizontalAlignment="Left" Name="folderBrowseButton"  Click="Browse_Click" Height="20" Grid.Column="1" Width="50" />
+        <TextBox Name="OutName" VerticalAlignment="Center" HorizontalAlignment="Center" Width="250" Height="20" Grid.Row="1"/>
+        <Button Content="Merge" VerticalAlignment="Center" HorizontalAlignment="Left" Name="MergePP"  Click="Button1_Click" Height="20" Grid.Column="1" Grid.Row="1" Width="50" />
     </Grid>
 
 </Window>

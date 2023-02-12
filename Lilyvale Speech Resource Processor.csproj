@@ -9,7 +9,33 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <COMReference Include="{d1fbd7eb-8e86-42f8-a9e5-d55105212a90}">
+      <WrapperTool>tlbimp</WrapperTool>
+      <VersionMinor>0</VersionMinor>
+      <VersionMajor>16</VersionMajor>
+      <Guid>d1fbd7eb-8e86-42f8-a9e5-d55105212a90</Guid>
+    </COMReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Office.Interop.PowerPoint" Version="15.0.4420.1018" />
+    <PackageReference Include="MicrosoftOfficeCore" Version="15.0.0" />
     <PackageReference Include="Ookii.Dialogs.Wpf" Version="5.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>
