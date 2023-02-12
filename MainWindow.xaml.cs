@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Ookii.Dialogs.Wpf;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Lilyvale_Speech_Resource_Processor
 {
@@ -23,6 +11,25 @@ namespace Lilyvale_Speech_Resource_Processor
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new VistaFolderBrowserDialog()
+            {
+                Description = "Select Folder",
+                RootFolder = System.Environment.SpecialFolder.Desktop,
+                ShowNewFolderButton= true,
+                UseDescriptionForTitle= true
+            };
+
+            var result = dialog.ShowDialog();
+            if (result.HasValue && result.Value)
+            {
+                string folderPath = dialog.SelectedPath;
+                FolderNameTextBox.Text = folderPath;
+
+            }
         }
     }
 }
