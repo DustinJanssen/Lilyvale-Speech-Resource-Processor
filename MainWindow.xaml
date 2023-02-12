@@ -5,10 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lilyvale_Speech_Resource_Processor"
         mc:Ignorable="d"
-        Title="Lilyvale Speech Hub" Height="127" Width="520">
+        Title="Lilyvale Speech Hub" Height="130" Width="520" MinHeight="130" MinWidth="520" HorizontalAlignment="Center" VerticalAlignment="Center" SizeToContent="WidthAndHeight">
     <Grid>
-        <TextBox Name="FolderNameTextBox" VerticalAlignment="Top" Margin="10,10,71,0" />
-        <Button Content="Browse" HorizontalAlignment="Left" Name="folderBrowseButton"  Click="button1_Click" Margin="464,10,0,83" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="13*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox Name="FolderNameTextBox" VerticalAlignment="Center" HorizontalAlignment="Center" Width="250" Height="18"/>
+        <Button Content="Browse" VerticalAlignment="Center" HorizontalAlignment="Left" Name="folderBrowseButton"  Click="button1_Click" Height="18" Grid.Column="1" Width="42" />
     </Grid>
 
 </Window>
