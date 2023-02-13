@@ -44,7 +44,6 @@ namespace Lilyvale_Speech_Resource_Processor
             Microsoft.Office.Interop.PowerPoint.Application pptApplication = new();
             Presentation destPresentation = pptApplication.Presentations.Add(Microsoft.Office.Core.MsoTriState.msoTrue);
 
-            destPresentation.Slides.Add(1, PpSlideLayout.ppLayoutBlank); //Initialize the slide show to stop index error
             bool sizeSet = false;
 
             foreach (string sourceFile in sourceFiles)
@@ -61,18 +60,8 @@ namespace Lilyvale_Speech_Resource_Processor
                 var slides = sourcePresentation.Slides;
                 foreach (Slide sourceSlide in slides)
                 {
-                    destPresentation.Slides.InsertFromFile(sourceFile, destPresentation.Slides.Count, sourceSlide.SlideNumber, sourceSlide.SlideNumber);
-
-                    Slide destSlide = destPresentation.Slides[destPresentation.Slides.Count];
-                   
-                    /*
-                     * The following is an failed attempt to fix the background not copying correctly.
-                     */
-                    destSlide.FollowMasterBackground = Microsoft.Office.Core.MsoTriState.msoFalse;
-                    destSlide.Background.Fill.ForeColor.RGB = sourceSlide.Background.Fill.ForeColor.RGB;
-                    destSlide.Background.Fill.BackColor.RGB = sourceSlide.Background.Fill.BackColor.RGB;
-                    
-                    destSlide.ColorScheme = sourceSlide.ColorScheme; //Force the color scheme to be copied
+                    sourceSlide.Copy();
+                    destPresentation.Application.CommandBars.ExecuteMso("PasteSourceFormatting");
                     NAR(sourceSlide); //Release the COM for the individual slide
                 }
 
@@ -81,7 +70,6 @@ namespace Lilyvale_Speech_Resource_Processor
                 NAR(sourcePresentation); //Release all COM for the source
             }
 
-            destPresentation.Slides[1].Delete(); //Remove the blank initial slide
             destPresentation.SaveAs(outPath);
 
             GC.Collect();
