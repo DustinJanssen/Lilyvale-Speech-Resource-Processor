@@ -35,7 +35,7 @@ namespace Lilyvale_Speech_Resource_Processor
             }
         }
 
-        private void Button1_Click(object sender, RoutedEventArgs e)
+        private void Merge_PPTX(object sender, RoutedEventArgs e)
         {
             string outPath = $@"{FolderNameTextBox.Text}\{OutName.Text}.pptx";
             string[] sourceFiles = Directory.GetFiles(FolderNameTextBox.Text, "*.pptx");
